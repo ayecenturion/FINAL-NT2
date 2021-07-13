@@ -13,13 +13,15 @@
     >
     </div>
     
-    <pre>Codificado: {{formData|codificado}}</pre>
-    <pre>En mayúscula: {{formData|pasarAMayuscula}}</pre>
-    <pre>En minúscula: {{formData|pasarAMinuscula}}</pre>
-    <pre>Minúscula mayuscula intercalado: {{formData|mayusMinIntercalado}}</pre>
-    <pre>Mayuscula minúscula  intercalado: {{formData|minMayusIntercalado}}</pre>
-
-
+    <div v-if="getCantLetras>0">
+      <pre>Cantidad: {{getCantLetras}}</pre>
+      <pre>Codificado: {{formData|codificado}}</pre>
+      <pre>En mayúscula: {{formData|pasarAMayuscula}}</pre>
+      <pre>En minúscula: {{formData|pasarAMinuscula}}</pre>
+      <pre>Minúscula mayuscula intercalado: {{formData|mayusMinIntercalado}}</pre>
+      <pre>Mayuscula minúscula  intercalado: {{formData|minMayusIntercalado}}</pre>
+    </div>
+    
     <p>Respuestas: 1: b  /  2: b  /  3: c  /  4: b  /  5: a</p>
 
   </section>
@@ -45,7 +47,9 @@
 
     },
     computed: {
-     
+     getCantLetras(){
+        return this.formData.length
+      }
     },
     filters:{
       codificado: function(value){
